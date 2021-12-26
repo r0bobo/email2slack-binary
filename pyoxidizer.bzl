@@ -8,7 +8,10 @@ def make_exe():
         packaging_policy=policy,
         config=python_config,
     )
-    for resource in exe.pip_install(["email2slack", "chardet"]):
+    for resource in exe.pip_install([
+            "chardet==4.0.0",
+            "email2slack==1.0.0a6",
+    ]):
         resource.add_location = "in-memory"
         exe.add_python_resource(resource)
     return exe
